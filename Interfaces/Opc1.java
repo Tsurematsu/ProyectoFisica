@@ -14,8 +14,8 @@ public class Opc1 extends Methods {
         
         panel1.Titulo="Calculo de no se que";
         panel1.Descripcion="Descripcion <br> Separacion <br> dos";
-        panel1.Input0="Ingresar";
-        panel1.Input1="Ingresar ";
+        panel1.Input1="Ingresar";
+        panel1.Input2="Ingresar ";
 
         panel1.Formula = ()->{
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
