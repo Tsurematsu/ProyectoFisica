@@ -66,6 +66,7 @@ public class Plantilla extends JPanel{
             Elementos.add(Methods.AddLabel("<html>" + Titulo + "</html>"));
             
             Elementos.add(Methods.AddLabel("<html>" + Descripcion + "</html>"));
+
             Elementos.add(Methods.AddTextNumer(String.valueOf(Input0)));   
             Elementos.add(Methods.AddTextNumer(String.valueOf(Input0)));
 
@@ -89,10 +90,15 @@ public class Plantilla extends JPanel{
                 try {Methods.setFont((JLabel)jComponent, 20);} catch (Exception e) {}
                 try {Methods.setFont((JTextField)jComponent, 20);} catch (Exception e) {}
             }
+
+
+            ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 90);
+
             Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
             // Bloque 1 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
     
+            
             this.repaint();
         }
 
