@@ -76,7 +76,7 @@ public class Plantilla extends JPanel{
             Elementos.add(Methods.AddLabel("<html>" + Descripcion + "</html>"));
 
             Elementos.add(Methods.AddTextNumer(String.valueOf(Input1)));   
-            Elementos.add(Methods.AddTextNumer(String.valueOf(Input1)));
+            Elementos.add(Methods.AddTextNumer(String.valueOf(Input2)));
 
             Elementos.add(Methods.AddButton("Calcular", ()->{
                 $_Intput1_Retorno=((JTextField)Elementos.get(2)).getText(); 
