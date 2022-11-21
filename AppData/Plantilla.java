@@ -27,6 +27,7 @@ public class Plantilla extends JPanel{
     SubPanel2 Sub2; 
 
     Boolean panelSelect = true;
+    public String Input0;
 
     public Plantilla() {}
     public void Aply(){
