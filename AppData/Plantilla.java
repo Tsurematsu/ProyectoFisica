@@ -16,8 +16,8 @@ public class Plantilla extends JPanel{
     public String Titulo=""; 
     public String Cuestionario="";
     public String Descripcion=""; 
-    public String Input0=""; 
-    public String Input1="";
+    public String Input1=""; 
+    public String Input2="";
     public Integer resultado=-1;
     public String[][] botones;
     public Runnable AlFinalizar = ()->{};
@@ -75,8 +75,8 @@ public class Plantilla extends JPanel{
             
             Elementos.add(Methods.AddLabel("<html>" + Descripcion + "</html>"));
 
-            Elementos.add(Methods.AddTextNumer(String.valueOf(Input0)));   
-            Elementos.add(Methods.AddTextNumer(String.valueOf(Input0)));
+            Elementos.add(Methods.AddTextNumer(String.valueOf(Input1)));   
+            Elementos.add(Methods.AddTextNumer(String.valueOf(Input1)));
 
             Elementos.add(Methods.AddButton("Calcular", ()->{
                 $_Intput1_Retorno=((JTextField)Elementos.get(2)).getText(); 
