@@ -1,8 +1,14 @@
 package Interfaces;
-public class Opc1 {
+import AppData.Methods;
+
+public class Opc1 extends Methods {
     
-    public static void Open() {
-     
-    System.out.println("HOLA MOR");
+    public static Runnable Open = Methods.Set_Panel(new Opc1(), ()->Main(),()->loop());
+    
+    static void Main(){
+
+    }
+    static void loop(){
+
     }
 }
