@@ -19,7 +19,6 @@ public class Plantilla extends JPanel{
     public String Input1=""; 
     public String Input2="";
     public Integer resultado=-1;
-    public String[][] botones;
     public Runnable AlFinalizar = ()->{};
 
     
@@ -143,23 +142,25 @@ public class Plantilla extends JPanel{
 
             Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
 
+            // String[][] botones = "";
 
-            // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            for (int i = 0; i < botones.length; i++) {
-                count1=i;
-                Botones.add(Methods.AddButton(botones[i][0], ()->{ botonSelInteger= count1; }));
-                Botones.get(Botones.size()-1).setName(String.valueOf(i));
-            }
+
+            // // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            // for (int i = 0; i < botones.length; i++) {
+            //     count1=i;
+            //     Botones.add(Methods.AddButton(botones[i][0], ()->{ botonSelInteger= count1; }));
+            //     Botones.get(Botones.size()-1).setName(String.valueOf(i));
+            // }
     
     
-            for (JComponent jComponent : Botones) {
-                this.add(jComponent);
-                jComponent.setBackground(Color.WHITE);
-                jComponent.setSize(120, 30);
-            }
+            // for (JComponent jComponent : Botones) {
+            //     this.add(jComponent);
+            //     jComponent.setBackground(Color.WHITE);
+            //     jComponent.setSize(120, 30);
+            // }
 
-            Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
-            // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            // Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
+            // // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             
 
            

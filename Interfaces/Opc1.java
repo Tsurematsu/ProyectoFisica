@@ -35,11 +35,7 @@ public class Opc1 extends Methods {
         };
 
 
-        panel1.botones = new String[][]{
-            {"Opcion1", "mensage", "mensage"}, 
-            {"Opcion2", "mensage", "mensage"},
-            {"Opcion3", "mensage", "mensage"},
-        };
+        panel1.Cuestionario="";
         panel1.resultado=0;
 
         this_Panel.add(panel1);
