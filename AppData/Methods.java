@@ -398,7 +398,7 @@ public class Methods {
             public void keyTyped(KeyEvent e) {
                 // TODO Auto-generated method stub
                 int key = e.getKeyChar();
-                boolean numeros = key >= 48 && key <= 57;
+                boolean numeros = (key >= 48 && key <= 57);
                 if (!numeros)
                 {
                     e.consume();
