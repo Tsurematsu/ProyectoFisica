@@ -13,8 +13,8 @@ public class Opc1 extends Methods {
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
         panel1.Titulo="Calculo del area de un condensador";
-        panel1.Descripcion="Para la solución del ejercicio hay que tener en cuenta la siguiente formula <br><center> Q=C.V</center>";
-        panel1.Input0="Ingrese el valor de capacitor (C):";
+        panel1.Descripcion="Para la solución del ejercicio hay que tener en cuenta la siguiente formula <br><center> Q = C * V</center>";
+        panel1.Input0="Ingrese el valor del capacitor (C):";
         panel1.Input1="Ingrese el valor de la diferencia potencial (V):";
 
         panel1.Formula = ()->{

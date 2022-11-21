@@ -37,7 +37,7 @@ public class Opc1 extends Methods {
         System.out.println("Por lo que el valor del capacitor al multiplicarlo por ese numero queda como:"+ capacitor2+"F");
 
         double resultado= capacitor2*potencial;
-        System.out.println("El resultado es = "+resultado+"C");
+        System.out.println("El resultado es = "+resultado+" C");
         
 
     }
