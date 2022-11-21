@@ -1,6 +1,9 @@
 package AppData;
 import java.util.ArrayList;
 import javax.swing.*;
+
+import Main.Menu;
+
 import java.awt.Color;
 
 public class Plantilla extends JPanel{
@@ -11,6 +14,7 @@ public class Plantilla extends JPanel{
     public String $_Intput2_Retorno="";
 
     public String Titulo=""; 
+    public String Cuestionario="";
     public String Descripcion=""; 
     public String Input0=""; 
     public String Input1="";
@@ -43,6 +47,10 @@ public class Plantilla extends JPanel{
         Sub2.Aply();
 
         Restard();
+
+        JButton Home = Methods.AddButton("Home", ()->{Menu.Open.run();});
+        this.add(Home);
+        this.repaint();
 
     }
 
@@ -80,6 +88,7 @@ public class Plantilla extends JPanel{
             Elementos.add(Methods.AddButton("Siguiente", ()->{
                 panelSelect=false;
                 Restard();
+                // Sub2.Aply();
             }));
 
             
@@ -91,7 +100,7 @@ public class Plantilla extends JPanel{
                 try {Methods.setFont((JTextField)jComponent, 20);} catch (Exception e) {}
             }
 
-
+            Methods.setFont((JLabel) Elementos.get(0), 20);
             ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 90);
 
             Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
@@ -107,6 +116,8 @@ public class Plantilla extends JPanel{
 
     
     public class SubPanel2 extends JPanel{
+        ArrayList<JComponent> Elementos = new ArrayList<>();
+
         ArrayList<JComponent> Botones = new ArrayList<>();
         Integer botonSelInteger =-1;
         Integer count1;
@@ -115,6 +126,21 @@ public class Plantilla extends JPanel{
         }
 
         public void Aply(){
+            Elementos.add(Methods.AddLabel("<html>" + Titulo + "</html>"));            
+            Elementos.add(Methods.AddLabel("<html>" + Cuestionario + "</html>"));
+
+            for (JComponent jComponent : Elementos) {
+                this.add(jComponent);
+                jComponent.setSize(400, 30);
+                jComponent.setBackground(Color.white);
+                try {Methods.setFont((JLabel)jComponent, 15);} catch (Exception e) {}
+                try {Methods.setFont((JTextField)jComponent, 20);} catch (Exception e) {}
+            }
+
+            Methods.setFont((JLabel) Elementos.get(0), 20);
+            ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 90);
+
+            Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
 
 
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -131,9 +157,12 @@ public class Plantilla extends JPanel{
                 jComponent.setSize(120, 30);
             }
 
-            // Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
+            Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             
+
+           
+
         }
     }
 }

@@ -13,6 +13,7 @@ public class Opc1 extends Methods {
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
         panel1.Titulo="Calculo de no se que";
+        panel1.Cuestionario="Este es un cuestionario";
         panel1.Descripcion="Descripcion <br> Separacion <br> dos";
         panel1.Input0="Ingresar";
         panel1.Input1="Ingresar ";

@@ -1,4 +1,3 @@
-package Interfaces;
 import AppData.Methods;
 import java.util.Scanner;
 
