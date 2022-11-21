@@ -13,7 +13,6 @@ public class Opc1 extends Methods {
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
         panel1.Titulo="Calculo de no se que";
-        panel1.Cuestionario="Este es un cuestionario";
         panel1.Descripcion="Descripcion <br> Separacion <br> dos";
         panel1.Input0="Ingresar";
         panel1.Input1="Ingresar ";
@@ -21,6 +20,10 @@ public class Opc1 extends Methods {
         panel1.Formula = ()->{
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
             Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
+
+            double U=10;
+            double elevado= Math.pow(U, -6);
+
 
 
             Integer calculo;
