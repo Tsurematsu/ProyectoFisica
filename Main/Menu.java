@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.print.attribute.standard.Media;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JTextField;
 
 import AppData.Methods;
 
@@ -13,8 +14,13 @@ public class Menu extends Methods{
     
     static void Main(){
         this_Window.setSize(500,500);
+
+
+        JTextField input1 = AddTextField("titulo");
+        this_Panel.add(input1);
+
+
         ArrayList<JComponent> botones = new ArrayList<>();
-        botones.add(AddButton("null", ()->{System.out.println("hola");  }));
         botones.add(AddButton("null", ()->{System.out.println("hola");  }));
         botones.add(AddButton("null", ()->{System.out.println("hola");  }));
         botones.add(AddButton("null", ()->{System.out.println("hola");  }));
