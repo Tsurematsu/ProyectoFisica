@@ -87,7 +87,7 @@ public class Plantilla extends JPanel{
                 this.add(jComponent);
                 jComponent.setSize(400, 30);
                 jComponent.setBackground(Color.white);
-                try {Methods.setFont((JLabel)jComponent, 20);} catch (Exception e) {}
+                try {Methods.setFont((JLabel)jComponent, 15);} catch (Exception e) {}
                 try {Methods.setFont((JTextField)jComponent, 20);} catch (Exception e) {}
             }
 
