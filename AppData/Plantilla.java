@@ -28,7 +28,7 @@ public class Plantilla extends JPanel{
     Boolean panelSelect = true;
     public String Input0;
 
-    public Plantilla() {}
+    public Plantilla() {this.repaint();}
     public void Aply(){
         this.setLayout(null);
 
@@ -48,9 +48,7 @@ public class Plantilla extends JPanel{
 
         Restard();
 
-        JButton Home = Methods.AddButton("Home", ()->{Menu.Open.run();});
-        this.add(Home);
-        this.repaint();
+        
 
     }
 
@@ -142,28 +140,27 @@ public class Plantilla extends JPanel{
 
             Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
 
-            // String[][] botones = "";
+            ArrayList<String> botones = new ArrayList<>();
 
 
-            // // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            // for (int i = 0; i < botones.length; i++) {
-            //     count1=i;
-            //     Botones.add(Methods.AddButton(botones[i][0], ()->{ botonSelInteger= count1; }));
-            //     Botones.get(Botones.size()-1).setName(String.valueOf(i));
-            // }
+            // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            for (int i = 0; i < botones.size(); i++) {
+                count1=i;
+                Botones.add(Methods.AddButton(botones.get(i), ()->{ botonSelInteger= count1; }));
+                Botones.get(Botones.size()-1).setName(String.valueOf(i));
+            }
     
     
-            // for (JComponent jComponent : Botones) {
-            //     this.add(jComponent);
-            //     jComponent.setBackground(Color.WHITE);
-            //     jComponent.setSize(120, 30);
-            // }
+            for (JComponent jComponent : Botones) {
+                this.add(jComponent);
+                jComponent.setBackground(Color.WHITE);
+                jComponent.setSize(120, 30);
+            }
 
-            // Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
-            // // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
+            // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             
 
-           
 
         }
     }
