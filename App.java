@@ -1,4 +1,3 @@
-package Main;
 import java.lang.reflect.Method;
 import AppData.*;
 import Interfaces.*;
