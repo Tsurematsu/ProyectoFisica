@@ -5,10 +5,6 @@ import AppData.Plantilla;
 
 public class Opc3 extends Methods {
 
-    public static void main(String[] args) {
-        New_Window("EJERCICIO DE CAPACIATANCIA",()->{});
-        Opc3.Open.run();
-    }
 
     public static Runnable Open = Methods.Set_Panel(new Opc3(), ()->Main(),()->loop());
     static Plantilla panel1;
@@ -45,4 +41,5 @@ public class Opc3 extends Methods {
     static void loop(){
         panel1.ReloadCuestions();
     }
+
 }
