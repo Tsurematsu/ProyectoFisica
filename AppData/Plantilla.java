@@ -4,7 +4,7 @@ import java.util.Stack;
 
 import javax.swing.*;
 
-import Main.Menu;
+import Inicio.Menu;
 
 import java.awt.Color;
 import java.awt.Component;
