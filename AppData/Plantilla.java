@@ -26,7 +26,7 @@ public class Plantilla extends JPanel{
     public String Input2="";
     
     public String Cuestionario="Descripción del cuestionario";
-    public Integer resultado=-1;
+    public Double resultado;
     public Integer $$_Numer_Button_Option=3;
 
     public Runnable AlFinalizar = ()->{};
@@ -163,8 +163,8 @@ public class Plantilla extends JPanel{
             Botones.clear();
 
             Integer numero=$$_Numer_Button_Option;
-            ArrayList<Integer> botones = new ArrayList<>();
-            for (int i = 0; i < numero; i++) {botones.add((int) (Math.random() * 100));}
+            ArrayList<Double> botones = new ArrayList<>();
+            for (int i = 0; i < numero; i++) {botones.add((Double) (Math.random() * 100));}
             botones.add(resultado);
             ArrayList<Integer> numAl = aleatorio(numero + 1);
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -228,7 +228,7 @@ public class Plantilla extends JPanel{
 
         void selective(Integer select1){
             JButton select = (JButton) Botones.get(select1);
-            if (Integer.valueOf(select.getText())==resultado) {
+            if (Double.valueOf(select.getText())==resultado) {
                 Methods.msg("correcto", JOptionPane.INFORMATION_MESSAGE);
             }
         }

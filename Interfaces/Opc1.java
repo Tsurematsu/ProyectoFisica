@@ -15,35 +15,45 @@ public class Opc1 extends Methods {
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
         panel1.Titulo="HALLAR LA CARGA DE UN CONDENSADOR"; 
-        panel1.Descripcion="Para la resolución del ejercicio hay que tener en cuenta la siguiente formula: <br> <center> Q=CV </center>";
+        panel1.Descripcion="Introduzca los de datos de capacitancia y voltaje para calcular la carga de un condensador <br>Para la resolución del ejercicio hay que tener en cuenta la siguiente formula: <br> <center> Q=CV </center>";
         panel1.Input1="Ingrese el valor de capacitor (C)";
         panel1.Input2="Ingrese el valor de la diferencia potencial (V)";
 
         panel1.Formula = ()->{
-            Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
-            Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
+            Integer cap = Integer.valueOf(panel1.$_Intput1_Retorno);
+            Integer poten = Integer.valueOf(panel1.$_Intput2_Retorno);
             
-            double U=-6;
+        
+            Integer res= msg_Option("¿El dato ingresado en el capacitor es en microFaradios o nanoFaradios?", new String[]{"Nanofaradios","Microfaradios"});
+            
+            System.out.println(res);
 
+            if(res==0){
+            double elevado= Math.pow(10, -9);
+            double numpt;
+            numpt=cap*elevado;
 
-            boolean RES = msgOp_yes("El valor del capacitor es en microFaradios o nanoFaradios");
-            if (RES) {
-                U=-9;
+            double result= numpt*poten;
+            String res1 = "El resultado es " + (result+" C");
+            panel1.$_Retorno_Formula= res1;
+            }else{
+            double elevado= Math.pow(10 , -6);
+            double numpt;
+            numpt=cap*elevado;
+
+            double result= numpt*poten;
+            String res1 = "El resultado es " + (result+" C");
+            panel1.$_Retorno_Formula= res1;
             }
             
-            double elevado= Math.pow(10 , U);
-        
-            Integer calculo;
-            calculo = val1*val2;
-
-
-            String res1 = "El resultado es " + (calculo);
-            panel1.$_Retorno_Formula= res1;
         };
 
 
-        panel1.Cuestionario="";
-        panel1.resultado=0;
+        panel1.Cuestionario="<center>EJERCICIO DE PRACTICA</center><br>Entre las placas de un condensador de 5uf hay una diferencia de potencial de 400 voltios<br>¿Cual será la carga en cada placa?";
+        double resp=2;
+        double elevation= Math.pow(10, -3);
+        double resp2= resp*elevation;
+        panel1.resultado=resp2;
         panel1.$$_Numer_Button_Option=3;
 
         this_Panel.add(panel1);
@@ -54,4 +64,4 @@ public class Opc1 extends Methods {
     static void loop(){
         panel1.ReloadCuestions();
     }
-}
+    }
