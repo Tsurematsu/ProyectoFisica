@@ -14,10 +14,10 @@ public class Opc1 extends Methods {
         panel1 = new Plantilla();
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
-        panel1.Titulo="Calculo de no se que";
-        panel1.Descripcion="Descripcion <br> Separacion <br> dos";
-        panel1.Input1="Ingresar";
-        panel1.Input2="Ingresar ";
+        panel1.Titulo=""; 
+        panel1.Descripcion="";
+        panel1.Input1="";
+        panel1.Input2="";
 
         panel1.Formula = ()->{
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
@@ -35,8 +35,9 @@ public class Opc1 extends Methods {
         };
 
 
-        // panel1.Cuestionario="";
+        panel1.Cuestionario="";
         panel1.resultado=0;
+        panel1.$$_Numer_Button_Option=3;
 
         this_Panel.add(panel1);
         this_Panel.repaint();
