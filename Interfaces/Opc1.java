@@ -20,34 +20,25 @@ public class Opc1 extends Methods {
         panel1.Input2="Ingrese el valor de la diferencia potencial (V)";
 
         panel1.Formula = ()->{
-            Integer cap = Integer.valueOf(panel1.$_Intput1_Retorno);
-            Integer poten = Integer.valueOf(panel1.$_Intput2_Retorno);
+            Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
+            Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
             
-        
-            Integer res= msg_Option("¿El dato ingresado en el capacitor es en microFaradios o nanoFaradios?", new String[]{"Nanofaradios","Microfaradios"});
-            
-            System.out.println(res);
+            double U=-6;
 
-            if(res==0){
-            double elevado= Math.pow(10, -9);
-            double numpt;
-            numpt=cap*elevado;
 
-            double result= numpt*poten;
-            String res1 = "El resultado es " + (result+" C");
-            panel1.$_Retorno_Formula= res1;
-
-            }else{
-                double elevado= Math.pow(10 , -6);
-            double numpt;
-            numpt=cap*elevado;
-
-            double result= numpt*poten;
-            String res1 = "El resultado es " + (result+" C");
-            panel1.$_Retorno_Formula= res1;
+            boolean RES = msgOp_yes("El valor del capacitor es en microFaradios o nanoFaradios");
+            if (RES) {
+                U=-9;
             }
-                            
             
+            double elevado= Math.pow(10 , U);
+        
+            Integer calculo;
+            calculo = val1*val2;
+
+
+            String res1 = "El resultado es " + (calculo);
+            panel1.$_Retorno_Formula= res1;
         };
 
 

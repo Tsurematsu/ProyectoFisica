@@ -1,43 +1,72 @@
 package Interfaces;
 
+import java.util.Scanner;
+import java.util.function.DoublePredicate;
+
 import AppData.Methods;
-import AppData.Plantilla;
 
 public class Opc3 extends Methods {
 
-    public static Runnable Open = Methods.Set_Panel(new Opc3(), ()->Main(),()->loop());
-    static Plantilla panel1;
-    static void Main(){
-        panel1 = new Plantilla();
-        panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
+    
+    
+    public static void main(String[] args) {
         
-        panel1.Titulo="HALLAR EL CAMPO";
-        panel1.Descripcion="";
-        panel1.Input1="";
-        panel1.Input1=" ";
+    
+    Scanner scan = new Scanner(System.in);
 
-        panel1.Formula = ()->{
-            Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
-            Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
+    System.out.println("Seleccione 1 si maneja datos en microcoulomb y Metros.");
+    System.out.println("Seleccione 2 si maneja datos en Nanocoulomb y Metros.");
+    System.out.println("Seleccione 3 si maneja datos en microcoulomb y Centimetros.");
+    System.out.println("Seleccione 4 si maneja datos en Nanocoulomb y Centimetros.");
 
-            Integer calculo;
-            calculo = val1*val2;
+    int opcion = scan.nextInt();
 
+    switch (opcion){
 
-            String res1 = "El resultado es " + (calculo);
-            panel1.$_Retorno_Formula= res1;
-        };
+        case 1:
 
+            System.out.println("Ingrese el valor de la carga");
+            double Q = scan.nextInt();
+            System.out.println("Ingrese el valor de la distancia");
+            double R = scan.nextInt();
 
-        panel1.Cuestionario="";
-        panel1.resultado=0;
+            double microcoulomb = Math.pow(10 , -6);
+            double distancia = Math.pow(R,2);
+            double campoElectrico = (Q * microcoulomb)/distancia; 
+
+            System.out.println(campoElectrico + " Voltios");
+
+        break;
         
+        case 2:
+            
+            System.out.println("Ingrese el valor de la carga");
+            double QN = scan.nextInt();
+            System.out.println("Ingrese el valor de la distancia");
+            double RN = scan.nextInt();
 
-        this_Panel.add(panel1);
-        this_Panel.repaint();
-        panel1.Aply();
+            double nanocoulomb = Math.pow(10 , -9);
+            double distanciaN = Math.pow(RN,2);
+            double campoElectricoN = (QN * nanocoulomb)/distanciaN; 
+
+            System.out.println(campoElectricoN + " Voltios");
+            
+        break;
+        
+        case 3:
+            
+            
+        break;
+        
+        case 4:
+        
+        break;
     }
+ 
+}
+
+
     static void loop(){
-        panel1.ReloadCuestions();
+
     }
 }
