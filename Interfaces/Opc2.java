@@ -23,7 +23,7 @@ public class Opc2 extends Methods {
             Integer calculo;
             calculo = val1*val2;
 
-
+            // test 
             String res1 = "El resultado es " + (calculo);
             panel1.$_Retorno_Formula= res1;
         };
