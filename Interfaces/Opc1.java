@@ -24,8 +24,6 @@ public class Opc1 extends Methods {
             double U=10;
             double elevado= Math.pow(U, -6);
 
-
-
             Integer calculo;
             calculo = val1*val2;
 
