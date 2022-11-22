@@ -72,29 +72,34 @@ public class Plantilla extends JPanel{
     }
 
     public class SubPanel1 extends JPanel{
-        ArrayList<JComponent> Elementos = new ArrayList<>();
-        
-        
+        ArrayList<JComponent> Elementos = new ArrayList<>();    
         public SubPanel1() {}
-
-    
         public void Aply(){
             this.setLocation(0,0);
-    
             this.setLayout(null);
             // Bloque 1 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             Elementos.add(Methods.AddLabel("<html>" + Titulo + "</html>"));
             
             Elementos.add(Methods.AddLabel("<html>" + Descripcion + "</html>"));
+            JLabel select = (JLabel) Elementos.get(Elementos.size()-1);
+            select.setHorizontalAlignment(SwingConstants.LEFT);
+            select.setVerticalAlignment(SwingConstants.TOP);
 
             Elementos.add(Methods.AddTextNumer(String.valueOf(Input1)));   
             Elementos.add(Methods.AddTextNumer(String.valueOf(Input2)));
 
             Elementos.add(Methods.AddButton("Calcular", ()->{
-                $_Intput1_Retorno=((JTextField)Elementos.get(2)).getText(); 
-                $_Intput2_Retorno=((JTextField)Elementos.get(3)).getText();; 
-                Formula.run(); 
-                ((JLabel) Elementos.get(5)).setText("<html>" + $_Retorno_Formula + "</html>");}));
+                JTextField input1 = (JTextField) Elementos.get(2);
+                JTextField input2 = (JTextField) Elementos.get(3);
+                if (input1.getText().length()>0 && input2.getText().length()>0) {
+                    $_Intput1_Retorno=input1.getText(); 
+                    $_Intput2_Retorno=input2.getText(); 
+                    Formula.run(); 
+                    ((JLabel) Elementos.get(5)).setText("<html>" + $_Retorno_Formula + "</html>");
+                }else{
+                    Methods.msg("Hay campos vacíos");
+                }
+            }));
             Elementos.add(Methods.AddLabel("Resultado"));
 
             Elementos.add(Methods.AddButton("Siguiente", ()->{
@@ -129,12 +134,8 @@ public class Plantilla extends JPanel{
     public class SubPanel2 extends JPanel{
         ArrayList<JComponent> Elementos = new ArrayList<>();
         ArrayList<JComponent> Botones = new ArrayList<>();
-        
         Integer botonSelInteger =-1;
-        
-        public SubPanel2() {
-        }
-        
+        public SubPanel2() {}
         public void AddSelectButtons(){
             for (Component jComponent : this.getComponents()) {
                 try {
@@ -185,8 +186,12 @@ public class Plantilla extends JPanel{
         }
 
         public void Aply(){
-            Elementos.add(Methods.AddLabel("<html>" + Titulo + "</html>"));            
+            Elementos.add(Methods.AddLabel("<html>" + Titulo + "</html>"));    
+
             Elementos.add(Methods.AddLabel("<html>" + Cuestionario + "</html>"));
+            JLabel select = (JLabel) Elementos.get(Elementos.size()-1);
+            select.setHorizontalAlignment(SwingConstants.LEFT);
+            select.setVerticalAlignment(SwingConstants.TOP);
 
             for (JComponent jComponent : Elementos) {
                 this.add(jComponent);
