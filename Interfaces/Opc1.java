@@ -14,18 +14,25 @@ public class Opc1 extends Methods {
         panel1 = new Plantilla();
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
-        panel1.Titulo=""; 
-        panel1.Descripcion="";
-        panel1.Input1="";
-        panel1.Input2="";
+        panel1.Titulo="HALLAR LA CARGA DE UN CONDENSADOR"; 
+        panel1.Descripcion="Para la resolución del ejercicio hay que tener en cuenta la siguiente formula: <br> <center> Q=CV </center>";
+        panel1.Input1="Ingrese el valor de capacitor (C)";
+        panel1.Input2="Ingrese el valor de la diferencia potencial (V)";
 
         panel1.Formula = ()->{
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
             Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
+            
+            double U=-6;
 
-            double U=10;
-            double elevado= Math.pow(U, -6);
 
+            boolean RES = msgOp_yes("El valor del capacitor es en microFaradios o nanoFaradios");
+            if (RES) {
+                U=-9;
+            }
+            
+            double elevado= Math.pow(10 , U);
+        
             Integer calculo;
             calculo = val1*val2;
 

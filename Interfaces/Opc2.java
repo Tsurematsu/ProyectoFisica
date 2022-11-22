@@ -11,7 +11,7 @@ public class Opc2 extends Methods {
         panel1 = new Plantilla();
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
-        panel1.Titulo="";
+        panel1.Titulo="HALLAR EL AREA DE LA CARGA";
         panel1.Descripcion="";
         panel1.Input1="";
         panel1.Input1=" ";

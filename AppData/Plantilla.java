@@ -177,6 +177,7 @@ public class Plantilla extends JPanel{
                     public void actionPerformed(ActionEvent e) {
                         // TODO Auto-generated method stub
                         selective(Integer.valueOf(botonStandar.getName()));
+                        botonStandar.setBackground(Color.red);
                     }
                     
                 });
