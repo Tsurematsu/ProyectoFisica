@@ -398,7 +398,7 @@ public class Methods {
             public void keyTyped(KeyEvent e) {
                 // TODO Auto-generated method stub
                 int key = e.getKeyChar();
-                boolean numeros = key >= 48 && key <= 57;
+                boolean numeros = (key >= 48 && key <= 57);
                 if (!numeros)
                 {
                     e.consume();
@@ -706,6 +706,18 @@ public class Methods {
         msg(text, JOptionPane.ERROR_MESSAGE);
     }
 
+    public static Integer msg_Option(String Mensaje,String[] text){
+        Integer retorno=-1;
+        String select =(String) JOptionPane.showInputDialog(null,Mensaje, "Option message",JOptionPane.QUESTION_MESSAGE,null,text, text[0]);
+        if (select!=null) {
+            for (int i = 0; i < text.length; i++) {
+                if (select.equals(text[i])) {
+                    retorno = i;
+                }
+            }
+        }
+        return (retorno); 
+    }
 
     public static Integer msgOp(String text){
         return msgOp(text, "Alert");
