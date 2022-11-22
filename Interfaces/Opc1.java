@@ -7,9 +7,9 @@ import AppData.Plantilla;
 public class Opc1 extends Methods {
     
     public static Runnable Open = Methods.Set_Panel(new Opc1(), ()->Main(),()->loop());
-    
+    static Plantilla panel1;
     static void Main(){
-        Plantilla panel1 = new Plantilla();
+        panel1 = new Plantilla();
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
         panel1.Titulo="Calculo de no se que";
@@ -35,7 +35,7 @@ public class Opc1 extends Methods {
         };
 
 
-        panel1.Cuestionario="";
+        // panel1.Cuestionario="";
         panel1.resultado=0;
 
         this_Panel.add(panel1);
@@ -44,6 +44,6 @@ public class Opc1 extends Methods {
 
     }
     static void loop(){
-
+        panel1.ReloadCuestions();
     }
 }

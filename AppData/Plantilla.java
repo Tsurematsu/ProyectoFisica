@@ -7,6 +7,9 @@ import javax.swing.*;
 import Main.Menu;
 
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Plantilla extends JPanel{
 
@@ -15,9 +18,9 @@ public class Plantilla extends JPanel{
     public String $_Intput1_Retorno="";
     public String $_Intput2_Retorno="";
 
-    public String Titulo=""; 
-    public String Cuestionario="";
-    public String Descripcion=""; 
+    public String Titulo="Este es un titulo"; 
+    public String Cuestionario="Descripción del cuestionario";
+    public String Descripcion="Descripción del problema"; 
     public String Input1=""; 
     public String Input2="";
     public Integer resultado=-1;
@@ -31,11 +34,16 @@ public class Plantilla extends JPanel{
     public String Input0;
 
     public Plantilla() {this.repaint();}
+
+    public void ReloadCuestions(){
+        Sub2.AddSelectButtons();
+    }
+
     public void Aply(){
         
         this.setLayout(null);
 
-        JButton Home = Methods.AddButton("Home", ()->{Menu.Open.run();});
+        JButton Home = Methods.AddButton("Home", ()->{panelSelect=true; Restard(); Menu.Open.run();});
         Home.setFocusable(true);
         Home.requestFocus();
         this.add(Home);
@@ -69,6 +77,7 @@ public class Plantilla extends JPanel{
         
         
         public SubPanel1() {}
+
     
         public void Aply(){
             this.setLocation(0,0);
@@ -117,16 +126,65 @@ public class Plantilla extends JPanel{
 
 
     }
+    
 
     
     public class SubPanel2 extends JPanel{
         ArrayList<JComponent> Elementos = new ArrayList<>();
-
         ArrayList<JComponent> Botones = new ArrayList<>();
+        
         Integer botonSelInteger =-1;
-        Integer count1;
-
+        
         public SubPanel2() {
+        }
+        
+        public void AddSelectButtons(){
+            for (Component jComponent : this.getComponents()) {
+                try {
+                    for (JComponent jComponent1 : Botones) {
+                        if (jComponent.equals(jComponent1)) {
+                            this.remove(jComponent);
+                        }
+                    }
+                } catch (Exception e) {}
+            }
+            try {
+                for (JComponent jComponent : Botones) {
+                    this.remove(jComponent);
+                }
+            } catch (Exception e) {
+                // TODO: handle exception
+            }
+            Botones.clear();
+
+            Integer numero=3;
+            ArrayList<Integer> botones = new ArrayList<>();
+            for (int i = 0; i < numero; i++) {botones.add((int) (Math.random() * 100));}
+            botones.add(resultado);
+            ArrayList<Integer> numAl = aleatorio(numero + 1);
+            // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+            for (int i = 0; i < botones.size(); i++) {
+                JButton botonStandar = new JButton();
+                botonStandar.setName(String.valueOf(i));
+                botonStandar.setText(String.valueOf(botones.get(numAl.get(i))));
+                botonStandar.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        // TODO Auto-generated method stub
+                        selective(Integer.valueOf(botonStandar.getName()));
+                    }
+                    
+                });
+                Botones.add(botonStandar);
+            }
+
+            for (JComponent jComponent : Botones) {
+                this.add(jComponent);
+                jComponent.setBackground(Color.WHITE);
+                jComponent.setSize(120, 30);
+            }
+
+            Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
         }
 
         public void Aply(){
@@ -140,42 +198,19 @@ public class Plantilla extends JPanel{
                 try {Methods.setFont((JLabel)jComponent, 15);} catch (Exception e) {}
                 try {Methods.setFont((JTextField)jComponent, 20);} catch (Exception e) {}
             }
-
             Methods.setFont((JLabel) Elementos.get(0), 20);
             ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 90);
-
             Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
-
-            Integer numero=3;
-            ArrayList<Integer> botones = new ArrayList<>();
-            for (int i = 0; i < numero; i++) {botones.add((int) (Math.random() * 100));}
-            botones.add(resultado);
-            
-            ArrayList<Integer> numAl = aleatorio(numero + 1);
-            count1=0;
-            // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            for (int i = 0; i < botones.size(); i++) {
-                // count1=i;
-                Botones.add(Methods.AddButton(String.valueOf(botones.get(i)), ()->{botonSelInteger= count1; selective(count1++);}));
-                Botones.get(Botones.size()-1).setName(String.valueOf(botones.get(numAl.get(i))));
-            }
-
-            for (JComponent jComponent : Botones) {
-                this.add(jComponent);
-                jComponent.setBackground(Color.WHITE);
-                jComponent.setSize(120, 30);
-            }
-
-            Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
+            // AddSelectButtons();
         }
 
-        void selective(Integer selection){
-            if (selection==resultado) {
-                Methods.msg("correcto");
+        void selective(Integer select1){
+            JButton select = (JButton) Botones.get(select1);
+            if (Integer.valueOf(select.getText())==resultado) {
+                Methods.msg("correcto", JOptionPane.INFORMATION_MESSAGE);
             }
-            System.out.println(resultado);
         }
 
 
