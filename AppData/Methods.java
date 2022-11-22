@@ -706,18 +706,6 @@ public class Methods {
         msg(text, JOptionPane.ERROR_MESSAGE);
     }
 
-    public static Integer msg_Option(String Mensaje,String[] text){
-        Integer retorno=-1;
-        String select =(String) JOptionPane.showInputDialog(null,Mensaje, "Option message",JOptionPane.QUESTION_MESSAGE,null,text, text[0]);
-        if (select!=null) {
-            for (int i = 0; i < text.length; i++) {
-                if (select.equals(text[i])) {
-                    retorno = i;
-                }
-            }
-        }
-        return (retorno); 
-    }
 
     public static Integer msgOp(String text){
         return msgOp(text, "Alert");
