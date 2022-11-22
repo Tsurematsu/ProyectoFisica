@@ -1,5 +1,7 @@
 package AppData;
 import java.util.ArrayList;
+import java.util.Stack;
+
 import javax.swing.*;
 
 import Main.Menu;
@@ -30,8 +32,13 @@ public class Plantilla extends JPanel{
 
     public Plantilla() {this.repaint();}
     public void Aply(){
+        
         this.setLayout(null);
 
+        JButton Home = Methods.AddButton("Home", ()->{Menu.Open.run();});
+        Home.setFocusable(true);
+        Home.requestFocus();
+        this.add(Home);
 
         Sub1 = new SubPanel1();
         this.add(Sub1);
@@ -49,7 +56,6 @@ public class Plantilla extends JPanel{
         Restard();
 
         
-
     }
 
     void Restard(){
@@ -140,17 +146,20 @@ public class Plantilla extends JPanel{
 
             Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
 
-            ArrayList<String> botones = new ArrayList<>();
-
-
+            Integer numero=3;
+            ArrayList<Integer> botones = new ArrayList<>();
+            for (int i = 0; i < numero; i++) {botones.add((int) (Math.random() * 100));}
+            botones.add(resultado);
+            
+            ArrayList<Integer> numAl = aleatorio(numero + 1);
+            count1=0;
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             for (int i = 0; i < botones.size(); i++) {
-                count1=i;
-                Botones.add(Methods.AddButton(botones.get(i), ()->{ botonSelInteger= count1; }));
-                Botones.get(Botones.size()-1).setName(String.valueOf(i));
+                // count1=i;
+                Botones.add(Methods.AddButton(String.valueOf(botones.get(i)), ()->{botonSelInteger= count1; selective(count1++);}));
+                Botones.get(Botones.size()-1).setName(String.valueOf(botones.get(numAl.get(i))));
             }
-    
-    
+
             for (JComponent jComponent : Botones) {
                 this.add(jComponent);
                 jComponent.setBackground(Color.WHITE);
@@ -159,9 +168,34 @@ public class Plantilla extends JPanel{
 
             Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            
+
+        }
+
+        void selective(Integer selection){
+            if (selection==resultado) {
+                Methods.msg("correcto");
+            }
+            System.out.println(resultado);
+        }
 
 
+        ArrayList<Integer> aleatorio(Integer numero){
+            ArrayList<Integer> retorno = new ArrayList<>();
+            int pos;
+            int nCartas = numero;
+            Stack < Integer > pCartas = new Stack < Integer > ();
+            for (int i = 0; i < nCartas ; i++) {
+            pos = (int) Math.floor(Math.random() * nCartas );
+            while (pCartas.contains(pos)) {
+                pos = (int) Math.floor(Math.random() * nCartas );
+            }
+            pCartas.push(pos);
+            }
+
+            for (int i = 0; i < pCartas.size(); i++) {
+                retorno.add(pCartas.get(i));
+            }
+            return retorno;
         }
     }
 }
