@@ -11,10 +11,11 @@ public class Opc2 extends Methods {
         panel1 = new Plantilla();
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
-        panel1.Titulo="HALLAR LA CAPACITANCIA";
-        panel1.Descripcion="";
+        panel1.Titulo="Encuentre el Area de la Carga electrica";
+        panel1.Descripcion="Para el Desarrolo del ejercicio hay que tener en cuenta la siguiente formula: <br> <center> A = Q/E(E0) </center> <br> tener en cuenta la siguente formula 8,85x10^-12"; 
+        panel1.Input1="ingresa el valor de la carga";
         panel1.Input1="";
-        panel1.Input1=" ";
+        
 
         panel1.Formula = ()->{
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
@@ -30,7 +31,7 @@ public class Opc2 extends Methods {
 
 
         panel1.Cuestionario="";
-        panel1.resultado=0.0;
+        panel1.resultado=0;
         
 
         this_Panel.add(panel1);
