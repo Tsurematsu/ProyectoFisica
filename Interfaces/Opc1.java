@@ -26,10 +26,9 @@ public class Opc1 extends Methods {
             double U=-6;
 
 
-            boolean RES = msgOp_yes("El valor del capacitor es en microFaradios o nanoFaradios");
-            if (RES) {
-                U=-9;
-            }
+            Integer res= msg_Option("¿El dato ingresado en el capacitor es en microFaradios o nanoFaradios?", new String[]{"Nanofaradios","Microfaradios"});
+            
+            System.out.println(res);
             
             double elevado= Math.pow(10 , U);
         
