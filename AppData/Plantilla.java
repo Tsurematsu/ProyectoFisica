@@ -18,12 +18,17 @@ public class Plantilla extends JPanel{
     public String $_Intput1_Retorno="";
     public String $_Intput2_Retorno="";
 
+    
     public String Titulo="Este es un titulo"; 
-    public String Cuestionario="Descripción del cuestionario";
     public String Descripcion="Descripción del problema"; 
+
     public String Input1=""; 
     public String Input2="";
+    
+    public String Cuestionario="Descripción del cuestionario";
     public Integer resultado=-1;
+    public Integer $$_Numer_Button_Option=3;
+
     public Runnable AlFinalizar = ()->{};
 
     
@@ -52,13 +57,15 @@ public class Plantilla extends JPanel{
         this.add(Sub1);
         Sub1.setBounds(this.getBounds());
         Sub1.setLayout(null);
+        Sub1.setBackground(Color.white);
         Sub1.Aply();
-
-
+        
+        
         Sub2 = new SubPanel2();
         this.add(Sub2);
         Sub2.setBounds(this.getBounds());
         Sub2.setLayout(null);
+        Sub2.setBackground(Color.white);
         Sub2.Aply();
 
         Restard();
@@ -120,7 +127,7 @@ public class Plantilla extends JPanel{
             Methods.setFont((JLabel) Elementos.get(0), 20);
             ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 90);
 
-            Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
+            Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 20);        
             // Bloque 1 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
     
@@ -155,7 +162,7 @@ public class Plantilla extends JPanel{
             }
             Botones.clear();
 
-            Integer numero=3;
+            Integer numero=$$_Numer_Button_Option;
             ArrayList<Integer> botones = new ArrayList<>();
             for (int i = 0; i < numero; i++) {botones.add((int) (Math.random() * 100));}
             botones.add(resultado);
@@ -179,7 +186,8 @@ public class Plantilla extends JPanel{
             for (JComponent jComponent : Botones) {
                 this.add(jComponent);
                 jComponent.setBackground(Color.WHITE);
-                jComponent.setSize(120, 30);
+                Integer largoBtn = (Elementos.get(1).getSize().width - (10*numero))/ (numero + 1);//120
+                jComponent.setSize(largoBtn, 30);
             }
 
             Methods.Linear.X(Botones, 10, 0, Elementos.get(Elementos.size()-1).getLocation().y + Elementos.get(Elementos.size()-1).getSize().height + 20, this.getSize().width);
@@ -195,14 +203,23 @@ public class Plantilla extends JPanel{
 
             for (JComponent jComponent : Elementos) {
                 this.add(jComponent);
-                jComponent.setSize(400, 30);
+                jComponent.setSize(this.getSize().width -180, 30);
                 jComponent.setBackground(Color.white);
                 try {Methods.setFont((JLabel)jComponent, 15);} catch (Exception e) {}
                 try {Methods.setFont((JTextField)jComponent, 20);} catch (Exception e) {}
             }
-            Methods.setFont((JLabel) Elementos.get(0), 20);
-            ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 90);
-            Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 100);        
+            
+            JLabel selectSS =  (JLabel) Elementos.get(0);
+            Methods.setFont(selectSS, 20);
+            
+            selectSS =  (JLabel) Elementos.get(1);
+            selectSS.setSize(selectSS.getSize().width, 100);
+            
+            selectSS =  (JLabel) Elementos.get(0);
+            Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - selectSS.getSize().width / 2, 30);        
+            
+            selectSS =  (JLabel) Elementos.get(1);
+            selectSS.setLocation(selectSS.getLocation().x, selectSS.getLocation().y + 20);
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
             // AddSelectButtons();

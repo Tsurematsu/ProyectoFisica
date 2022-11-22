@@ -9,6 +9,8 @@ public class Opc1 extends Methods {
     public static Runnable Open = Methods.Set_Panel(new Opc1(), ()->Main(),()->loop());
     static Plantilla panel1;
     static void Main(){
+        this_Window.setSize(500,500);
+        
         panel1 = new Plantilla();
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         

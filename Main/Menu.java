@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.print.attribute.standard.Media;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 import AppData.Methods;
@@ -20,7 +21,10 @@ public class Menu extends Methods{
         this_Window.setSize(500,500);
 
 
-        JTextField input1 = AddTextField("BIENVENIDO");
+        JLabel input1 = AddLabel("BIENVENIDO");
+        input1.setSize(this_Window.getSize().width, 30);
+        setFont(input1, 23);
+        input1.setLocation(0,20);
         this_Panel.add(input1);
 
 
