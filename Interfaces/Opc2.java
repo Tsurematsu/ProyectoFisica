@@ -8,6 +8,7 @@ public class Opc2 extends Methods {
     
     static void Main(){
 
+    
     }
     static void loop(){
 
