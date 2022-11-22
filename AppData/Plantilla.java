@@ -71,7 +71,6 @@ public class Plantilla extends JPanel{
         Sub2.setVisible(!panelSelect);
     }
 
-
     public class SubPanel1 extends JPanel{
         ArrayList<JComponent> Elementos = new ArrayList<>();
         
@@ -126,8 +125,6 @@ public class Plantilla extends JPanel{
 
 
     }
-    
-
     
     public class SubPanel2 extends JPanel{
         ArrayList<JComponent> Elementos = new ArrayList<>();
