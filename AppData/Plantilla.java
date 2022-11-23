@@ -28,6 +28,7 @@ public class Plantilla extends JPanel{
     public String Cuestionario="Descripción del cuestionario";
     public Double resultado;
     public Integer $$_Numer_Button_Option=3;
+    public String  $$_Return_Msg_Correct="Correcto";
 
     public Runnable AlFinalizar = ()->{};
 
@@ -46,11 +47,22 @@ public class Plantilla extends JPanel{
         Sub2.AddSelectButtons();
     }
 
+    void atrás(){
+        JTextField input1 = (JTextField) Sub1.ElementosGroup1.get(2);
+        JTextField input2 = (JTextField) Sub1.ElementosGroup1.get(3);
+        input1.setText("");
+        input2.setText("");
+        Sub2.msgError.setText("");
+        panelSelect=true; 
+        Restard(); 
+        Menu.Open.run();
+    }
+
     public void Aply(){
         
         this.setLayout(null);
 
-        JButton Home = Methods.AddButton("Home", ()->{panelSelect=true; Restard(); Menu.Open.run();});
+        JButton Home = Methods.AddButton("Home", ()->{atrás();});
         Home.setFocusable(true);
         Home.requestFocus();
         this.add(Home);
@@ -82,44 +94,48 @@ public class Plantilla extends JPanel{
     }
 
     public class SubPanel1 extends JPanel{
-        ArrayList<JComponent> Elementos = new ArrayList<>();    
+        public ArrayList<JComponent> ElementosGroup1 = new ArrayList<>();    
         public SubPanel1() {}
         public void Aply(){
             this.setLocation(0,0);
             this.setLayout(null);
             // Bloque 1 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            Elementos.add(Methods.AddLabel("<html>" + Titulo + "</html>"));
+            ElementosGroup1.add(Methods.AddLabel("<html>" + Titulo + "</html>"));
             
-            Elementos.add(Methods.AddLabel("<html>" + Descripcion + "</html>"));
-            JLabel select = (JLabel) Elementos.get(Elementos.size()-1);
+            ElementosGroup1.add(Methods.AddLabel("<html>" + Descripcion + "</html>"));
+            JLabel select = (JLabel) ElementosGroup1.get(ElementosGroup1.size()-1);
             select.setHorizontalAlignment(SwingConstants.LEFT);
             select.setVerticalAlignment(SwingConstants.TOP);
 
-            Elementos.add(Methods.AddTextNumer(String.valueOf(Input1)));   
-            Elementos.add(Methods.AddTextNumer(String.valueOf(Input2)));
+            ElementosGroup1.add(Methods.AddTextNumer(String.valueOf(Input1)));   
+            ElementosGroup1.add(Methods.AddTextNumer(String.valueOf(Input2)));
 
-            Elementos.add(Methods.AddButton("Calcular", ()->{
-                JTextField input1 = (JTextField) Elementos.get(2);
-                JTextField input2 = (JTextField) Elementos.get(3);
+            ElementosGroup1.add(Methods.AddButton("Calcular", ()->{
+                JTextField input1 = (JTextField) ElementosGroup1.get(2);
+                JTextField input2 = (JTextField) ElementosGroup1.get(3);
                 if (input1.getText().length()>0 && input2.getText().length()>0) {
                     $_Intput1_Retorno=input1.getText(); 
                     $_Intput2_Retorno=input2.getText(); 
                     Formula.run(); 
-                    ((JLabel) Elementos.get(5)).setText("<html>" + $_Retorno_Formula + "</html>");
+                    ((JLabel) ElementosGroup1.get(5)).setText("<html>" + $_Retorno_Formula + "</html>");
                 }else{
                     Methods.msg("Hay campos vacíos");
                 }
             }));
-            Elementos.add(Methods.AddLabel("Resultado"));
+            ElementosGroup1.add(Methods.AddLabel("Resultado"));
 
-            Elementos.add(Methods.AddButton("Siguiente", ()->{
+            ElementosGroup1.add(Methods.AddButton("Siguiente", ()->{
+                JTextField input1 = (JTextField) ElementosGroup1.get(2);
+                JTextField input2 = (JTextField) ElementosGroup1.get(3);
+                input1.setText("");
+                input2.setText("");
                 panelSelect=false;
                 Restard();
                 // Sub2.Aply();
             }));
 
             
-            for (JComponent jComponent : Elementos) {
+            for (JComponent jComponent : ElementosGroup1) {
                 this.add(jComponent);
                 jComponent.setSize(400, 30);
                 jComponent.setBackground(Color.white);
@@ -127,10 +143,10 @@ public class Plantilla extends JPanel{
                 try {Methods.setFont((JTextField)jComponent, 20);} catch (Exception e) {}
             }
 
-            Methods.setFont((JLabel) Elementos.get(0), 20);
-            ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 120);
+            Methods.setFont((JLabel) ElementosGroup1.get(0), 20);
+            ((JLabel) ElementosGroup1.get(1)).setSize(((JLabel) ElementosGroup1.get(1)).getSize().width, 120);
 
-            Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 30);        
+            Methods.Linear.Y(ElementosGroup1, 10, this.getSize().width / 2 - ElementosGroup1.get(0).getSize().width / 2, 30);        
             // Bloque 1 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
     
@@ -145,6 +161,7 @@ public class Plantilla extends JPanel{
         ArrayList<JComponent> Elementos = new ArrayList<>();
         ArrayList<JComponent> Botones = new ArrayList<>();
         Integer botonSelInteger =-1;
+        JLabel msgError;
         public SubPanel2() {}
         public void AddSelectButtons(){
             for (Component jComponent : this.getComponents()) {
@@ -170,6 +187,8 @@ public class Plantilla extends JPanel{
             for (int i = 0; i < numero; i++) {botones.add((Double) (Math.random() * 100));}
             botones.add(resultado);
             ArrayList<Integer> numAl = aleatorio(numero + 1);
+
+            
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
             for (int i = 0; i < botones.size(); i++) {
                 JButton botonStandar = new JButton();
@@ -180,7 +199,6 @@ public class Plantilla extends JPanel{
                     public void actionPerformed(ActionEvent e) {
                         // TODO Auto-generated method stub
                         selective(Integer.valueOf(botonStandar.getName()));
-                        botonStandar.setBackground(Color.red);
                     }
                     
                 });
@@ -229,6 +247,16 @@ public class Plantilla extends JPanel{
             
             selectSS =  (JLabel) Elementos.get(1);
             selectSS.setLocation(selectSS.getLocation().x, selectSS.getLocation().y + 20);
+
+            msgError = Methods.AddLabel("<html><b></b></html>");
+            msgError.setHorizontalAlignment(SwingConstants.LEFT);
+            msgError.setVerticalAlignment(SwingConstants.TOP);
+            msgError.setSize(selectSS.getSize().width, 80);
+            msgError.setLocation(selectSS.getLocation().x, selectSS.getSize().height + selectSS.getLocation().y + 80);
+            this.add(msgError);
+
+
+
             // Bloque 2 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
             // AddSelectButtons();
@@ -236,8 +264,17 @@ public class Plantilla extends JPanel{
 
         void selective(Integer select1){
             JButton select = (JButton) Botones.get(select1);
+
             if (select.getText().equals(String.valueOf(resultado))) {
-                Methods.msg("correcto", JOptionPane.INFORMATION_MESSAGE);
+                select.setBackground(Color.green);
+                Methods.msg($$_Return_Msg_Correct, JOptionPane.INFORMATION_MESSAGE);
+                atrás();
+            }else{
+                select.setBackground(Color.red);
+                msgError.setText("Opción no correcta");
+                for (JComponent jComponent : Botones) {
+                    jComponent.setEnabled(false);
+                }
             }
         }
 
