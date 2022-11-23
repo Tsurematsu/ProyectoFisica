@@ -52,6 +52,7 @@ public class Plantilla extends JPanel{
         Home.setFocusable(true);
         Home.requestFocus();
         this.add(Home);
+        Home.setBackground(Color.white);
 
         Sub1 = new SubPanel1();
         this.add(Sub1);
@@ -125,9 +126,9 @@ public class Plantilla extends JPanel{
             }
 
             Methods.setFont((JLabel) Elementos.get(0), 20);
-            ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 90);
+            ((JLabel) Elementos.get(1)).setSize(((JLabel) Elementos.get(1)).getSize().width, 120);
 
-            Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 20);        
+            Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - Elementos.get(0).getSize().width / 2, 30);        
             // Bloque 1 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
     
@@ -195,16 +196,21 @@ public class Plantilla extends JPanel{
         }
 
         public void Aply(){
-            Elementos.add(Methods.AddLabel("<html>" + Titulo + "</html>"));    
+
+            JLabel select;
+
+            Elementos.add(Methods.AddLabel("<html><CENTER>" + Titulo + "</CENTER></html>"));    
+            select = (JLabel) Elementos.get(Elementos.size()-1);
+
 
             Elementos.add(Methods.AddLabel("<html>" + Cuestionario + "</html>"));
-            JLabel select = (JLabel) Elementos.get(Elementos.size()-1);
-            select.setHorizontalAlignment(SwingConstants.LEFT);
+            select = (JLabel) Elementos.get(Elementos.size()-1);
+            select.setHorizontalAlignment(SwingConstants.CENTER);
             select.setVerticalAlignment(SwingConstants.TOP);
 
             for (JComponent jComponent : Elementos) {
                 this.add(jComponent);
-                jComponent.setSize(this.getSize().width -180, 30);
+                jComponent.setSize(this.getSize().width -180, 60);
                 jComponent.setBackground(Color.white);
                 try {Methods.setFont((JLabel)jComponent, 15);} catch (Exception e) {}
                 try {Methods.setFont((JTextField)jComponent, 20);} catch (Exception e) {}
@@ -228,7 +234,7 @@ public class Plantilla extends JPanel{
 
         void selective(Integer select1){
             JButton select = (JButton) Botones.get(select1);
-            if (Double.valueOf(select.getText())==resultado) {
+            if (select.getText().equals(String.valueOf(resultado))) {
                 Methods.msg("correcto", JOptionPane.INFORMATION_MESSAGE);
             }
         }
