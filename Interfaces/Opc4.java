@@ -30,7 +30,7 @@ public class Opc4 extends Methods {
 
 
         panel1.Cuestionario="";
-        panel1.resultado=0;
+        panel1.resultado=0.0;
         
 
         this_Panel.add(panel1);
