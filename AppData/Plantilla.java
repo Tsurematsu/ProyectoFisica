@@ -182,6 +182,10 @@ public class Plantilla extends JPanel{
             }
             Botones.clear();
 
+            JLabel select;
+            select = (JLabel) Elementos.get(1);
+            select.setText("<html><CENTER>" + Cuestionario + "</CENTER></html>");
+
             Integer numero=$$_Numer_Button_Option;
             ArrayList<Double> botones = new ArrayList<>();
             for (int i = 0; i < numero; i++) {botones.add((Double) (Math.random() * 100));}
