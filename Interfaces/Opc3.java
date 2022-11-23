@@ -11,7 +11,7 @@ public class Opc3 extends Methods {
         panel1 = new Plantilla();
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
-        panel1.Titulo="HALLAR LA CAPACITANCIA";
+        panel1.Titulo="HALLAR EL CAMPO";
         panel1.Descripcion="";
         panel1.Input1="";
         panel1.Input1=" ";
@@ -30,7 +30,7 @@ public class Opc3 extends Methods {
 
 
         panel1.Cuestionario="";
-        panel1.resultado=0;
+        panel1.resultado=0.0;
         
 
         this_Panel.add(panel1);

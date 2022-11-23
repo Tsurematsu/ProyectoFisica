@@ -29,6 +29,11 @@ public class Methods {
     static ArrayList<Object_List> list_Panels = new ArrayList<>();
     static JComponent Temp_Component2;
 
+
+    public static Double Random_Num(Double Minimo, Double Maximo){
+        return Math.random()*(Minimo-Maximo)+Maximo;
+    }
+
     public static Date FechaActual(){
         return new Date();
     };

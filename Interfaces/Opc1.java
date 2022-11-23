@@ -48,20 +48,24 @@ public class Opc1 extends Methods {
             
         };
 
-
-        panel1.Cuestionario="<center>EJERCICIO DE PRACTICA</center><br>Entre las placas de un condensador de 5uf hay una diferencia de potencial de 400 voltios<br>¿Cual será la carga en cada placa?";
-        double resp=2;
-        double elevation= Math.pow(10, -3);
-        double resp2= resp*elevation;
-        panel1.resultado=resp2;
-        panel1.$$_Numer_Button_Option=3;
-
         this_Panel.add(panel1);
         this_Panel.repaint();
         panel1.Aply();
 
     }
     static void loop(){
+        double condensador= Methods.Random_Num(1.0, 10.0);
+        double difpotencial= Methods.Random_Num(200.0, 800.0);
+        panel1.Cuestionario="<center>EJERCICIO DE PRACTICA</center><br>Entre las placas de un condensador de "+condensador+" uf hay una diferencia de potencial de "+difpotencial+" voltios<br>¿Cual será la carga en cada placa?";
+        double elevation= Math.pow(10, -6);
+        double resp=condensador*elevation;
+        double resp2= resp*difpotencial;
+        panel1.resultado=resp2;
+        panel1.$$_Return_Msg_Correct="bien zorra";
+        // panel1.resultado= Random_Num(10.0, 20.0);
+        panel1.$$_Numer_Button_Option=3;
+
+
         panel1.ReloadCuestions();
     }
     }
