@@ -38,7 +38,9 @@ public class Plantilla extends JPanel{
     Boolean panelSelect = true;
     public String Input0;
 
-    public Plantilla() {this.repaint();}
+    public Plantilla() {
+        Methods.this_Window.setSize(600,450);
+        this.repaint();}
 
     public void ReloadCuestions(){
         Sub2.AddSelectButtons();

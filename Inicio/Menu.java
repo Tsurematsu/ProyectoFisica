@@ -1,5 +1,6 @@
 package Inicio;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.print.attribute.standard.Media;
@@ -18,7 +19,7 @@ public class Menu extends Methods{
     public static Runnable Open = Methods.Set_Panel(new Menu(), ()->Main(),()->loop());
     
     static void Main(){
-        this_Window.setSize(500,500);
+        this_Window.setSize(400,300);
 
 
         JLabel input1 = AddLabel("BIENVENIDO");
@@ -37,9 +38,10 @@ public class Menu extends Methods{
         for (JComponent jComponent : botones) {
             this_Panel.add(jComponent);
             jComponent.setSize(200, 30);
+            jComponent.setBackground(new Color(239, 194, 231 ));
         }
 
-        Linear.Y(botones, 10, 150, 100);
+        Linear.Y(botones, 10, Mitad(botones.get(0)), 80);
 
 
         this_Panel.repaint();
