@@ -12,16 +12,16 @@ public class Opc4 extends Methods {
         panel1.setSize(this_Window.getSize().width, this_Window.getSize().height);
         
         panel1.Titulo="HALLAR LA CAPACITANCIA";
-        panel1.Descripcion="";
-        panel1.Input1="";
-        panel1.Input1=" ";
+        panel1.Descripcion="Para poder hallar la CAPACITANCIA, utilizaremos la sigiente formula C = Q / V. Por favor ingrese los siguientes datos:";
+        panel1.Input1="Ingrese el valor de la carga";
+        panel1.Input2="Ingrese el valor del voltaje";
 
         panel1.Formula = ()->{
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
             Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
 
             Integer calculo;
-            calculo = val1*val2;
+            calculo = val1/val2;
 
 
             String res1 = "El resultado es " + (calculo);
