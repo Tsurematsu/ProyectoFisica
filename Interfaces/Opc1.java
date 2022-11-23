@@ -61,7 +61,8 @@ public class Opc1 extends Methods {
         double resp=condensador*elevation;
         double resp2= resp*difpotencial;
         panel1.resultado=resp2;
-        panel1.$$_Return_Msg_Correct="bien zorra";
+        panel1.$$_Return_Msg_Correct="Correcto!";
+        panel1.$$_Return_Msg_Error="Respuesta incorrecta :(";
         // panel1.resultado= Random_Num(10.0, 20.0);
         panel1.$$_Numer_Button_Option=3;
 
