@@ -26,7 +26,7 @@ public class Plantilla extends JPanel{
     public String Input2="";
     
     public String Cuestionario="Descripción del cuestionario";
-    public int resultado;
+    public Double resultado;
     public Integer $$_Numer_Button_Option=3;
 
     public Runnable AlFinalizar = ()->{};
