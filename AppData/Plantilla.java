@@ -29,6 +29,7 @@ public class Plantilla extends JPanel{
     public Double resultado;
     public Integer $$_Numer_Button_Option=3;
     public String  $$_Return_Msg_Correct="Correcto";
+    public String  $$_Return_Msg_Error="Error opción no correcta";
 
     public Runnable AlFinalizar = ()->{};
 
@@ -275,7 +276,7 @@ public class Plantilla extends JPanel{
                 atrás();
             }else{
                 select.setBackground(Color.red);
-                msgError.setText("Opción no correcta");
+                msgError.setText($$_Return_Msg_Error);
                 for (JComponent jComponent : Botones) {
                     jComponent.setEnabled(false);
                 }
