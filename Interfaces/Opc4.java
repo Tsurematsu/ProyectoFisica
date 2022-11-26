@@ -20,7 +20,7 @@ public class Opc4 extends Methods {
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
             Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
             
-            Integer res= msg_Option("¿El dato ingresado en la carga es en microCoulom o nanooCoulom?", new String[]{"Nanofaradios","Microfaradios"});
+            Integer res= msg_Option("¿El dato ingresado en la carga es en microCoulom o nanooCoulom?", new String[]{"MicroCoulom","NanooCoulom"});
             
             System.out.println(res);
 
