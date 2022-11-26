@@ -52,19 +52,15 @@ public class Opc4 extends Methods {
         double Carga = Methods.Random_Num(10.0, 100.0);
         double Voltaje = Methods.Random_Num(50.0, 200.0);
         double elevado= Math.pow(10, -6);
-            double numpt;
-            numpt=Carga*elevado;
+        double numpt = Carga *elevado;
         panel1.Cuestionario="Por favor, realizar el sigueiente cuestionario para evidenciar los saberes obtenidos. " +
         "Recuerde que la formula es C = Q / V <br> La Carga es igual a : "+ Methods.RoundNum(Carga, 3)  + " mC<br>El Voljate es igual a : \n" + Methods.RoundNum(Voltaje, 3) +"<br>NOTA: mC= *10^-6";
         double res = numpt/Voltaje;
-        double Respuesta=Methods.RoundNum(res, 6);
 
-
-        panel1.$_RedondeoButtons=6;
-        panel1.$$_Return_Msg_Correct="¡RESPUESTA CORRECTA!\n"+ Respuesta + " F";
+        panel1.$_RedondeoButtons=4;
+        panel1.$$_Return_Msg_Correct="¡RESPUESTA CORRECTA!\n"+ res + " F";
         panel1.resultado=numpt/Voltaje;
         panel1.$$_Return_Msg_Error="Respuesta incorrecta";
-        // panel1.resultado= Random_Num(10.0, 20.0);
         panel1.$$_Numer_Button_Option=3;
 
         panel1.ReloadCuestions();
