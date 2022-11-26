@@ -20,7 +20,7 @@ public class Opc4 extends Methods {
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
             Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
             
-            Integer res= msg_Option("¿El dato ingresado en la carga es en microCoulom o nanooCoulom?", new String[]{"MicroCoulom","NanooCoulom"});
+            Integer res= msg_Option("¿El dato ingresado en la carga es en MicroCoulom o NanooCoulom?", new String[]{"MicroCoulom","NanooCoulom"});
         
             if(res==0){
             double elevado= Math.pow(10, -9);
@@ -51,11 +51,14 @@ public class Opc4 extends Methods {
     static void loop(){
         double Carga = Methods.Random_Num(10.0, 100.0);
         double Voltaje = Methods.Random_Num(50.0, 200.0);
+        double elevado= Math.pow(10, -6);
+            double numpt;
+            numpt=Carga*elevado;
         panel1.Cuestionario="Por favor, realizar el sigueiente cuestionario para evidenciar los saberes obtenidos. " +
-        "Recuerde que la formula es C = Q / V <br> La Carga es igual a : "+ Carga  + "<br>El Voljate es igual a : " + Voltaje ;
-
-        panel1.$$_Return_Msg_Correct="¡RESPUESTA CORRECTA!";
-        panel1.resultado=Carga/Voltaje;
+        "Recuerde que la formula es C = Q / V <br> La Carga es igual a : "+ Carga  + " mC<br>El Voljate es igual a : \n" + Voltaje +"\nNOTA: mC es igual a eleveado a la -6";
+        double res = numpt/Voltaje;
+        panel1.$$_Return_Msg_Correct="¡RESPUESTA CORRECTA!\n"+ res + " F";
+        panel1.resultado=numpt/Voltaje;
         panel1.ReloadCuestions();
     }
     
