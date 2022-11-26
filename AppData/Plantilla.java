@@ -17,6 +17,7 @@ public class Plantilla extends JPanel{
     public String $_Retorno_Formula="";
     public String $_Intput1_Retorno="";
     public String $_Intput2_Retorno="";
+    public Integer $_RedondeoButtons=0;
 
     
     public String Titulo="Este es un titulo"; 
@@ -198,7 +199,7 @@ public class Plantilla extends JPanel{
             for (int i = 0; i < botones.size(); i++) {
                 JButton botonStandar = new JButton();
                 botonStandar.setName(String.valueOf(i));
-                botonStandar.setText(String.valueOf(botones.get(numAl.get(i))));
+                botonStandar.setText(String.valueOf(Methods.RoundNum(botones.get(numAl.get(i)), $_RedondeoButtons)));
                 botonStandar.addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent e) {
