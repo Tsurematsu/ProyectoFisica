@@ -202,7 +202,7 @@ public class Plantilla extends JPanel{
                 JButton botonStandar = new JButton();
                 botonStandar.setName(String.valueOf(i));
                 //Valor
-                if ($_Relevar_Respuestas) {botonStandar.setBackground(Color.GRAY);}
+                // if ($_Relevar_Respuestas) {botonStandar.setBackground(Color.GRAY);}
                 // botonStandar.setText(String.valueOf(Methods.RoundNum(botones.get(numAl.get(i)), $_RedondeoButtons)));
                 botonStandar.setText(String.valueOf(botones.get(numAl.get(i))));
                 botonStandar.addActionListener(new ActionListener(){
@@ -216,14 +216,14 @@ public class Plantilla extends JPanel{
                 Botones.add(botonStandar);
             }
 
-            if ($_Relevar_Respuestas) {
-                for (JComponent integer : Botones) {
-                    JButton RT = (JButton) integer;
-                    if (RT.getText().equals(String.valueOf(resultado))) {
-                        RT.setBackground(Color.green);
-                    }
-                }
-            }
+            // if ($_Relevar_Respuestas) {
+            //     for (JComponent integer : Botones) {
+            //         JButton RT = (JButton) integer;
+            //         if (RT.getText().equals(String.valueOf(resultado))) {
+            //             RT.setBackground(Color.green);
+            //         }
+            //     }
+            // }
 
             for (JComponent jComponent : Botones) {
                 this.add(jComponent);
