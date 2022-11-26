@@ -65,7 +65,9 @@ public class Opc1 extends Methods {
         panel1.$_RedondeoButtons=6;
         panel1.resultado=result;
         panel1.$$_Return_Msg_Correct="Correcto!\n"+"El valor de la carga: "+result+" C";
-        panel1.$$_Return_Msg_Error="Respuesta incorrecta. La respuesta es: "+result+" C";
+        panel1.$$_Return_Msg_Error="RESPUESTA INCORRECTA!.\n LA RESPUESTA ES: "+result+" C";
+        panel1.$_Relevar_Respuestas=true;
+        panel1.$_JopcionMessage_Incorrect=true;
         // panel1.resultado= Random_Num(10.0, 20.0);
         panel1.$$_Numer_Button_Option=3;
 
