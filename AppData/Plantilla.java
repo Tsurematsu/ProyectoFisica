@@ -19,6 +19,7 @@ public class Plantilla extends JPanel{
     public String $_Intput2_Retorno="";
     public Integer $_RedondeoButtons=0;
     public Boolean $_Relevar_Respuestas = false;
+    public Boolean $_JopcionMessage_Incorrect = false;
 
     
     public String Titulo="Este es un titulo"; 
@@ -293,6 +294,9 @@ public class Plantilla extends JPanel{
                 msgError.setText($$_Return_Msg_Error);
                 for (JComponent jComponent : Botones) {
                     jComponent.setEnabled(false);
+                }
+                if ($_JopcionMessage_Incorrect) {
+                    Methods.msg($$_Return_Msg_Error, JOptionPane.INFORMATION_MESSAGE);
                 }
             }
         }
