@@ -60,7 +60,7 @@ public class Opc4 extends Methods {
         panel1.$_RedondeoButtons=4;
         panel1.$$_Return_Msg_Correct="¡RESPUESTA CORRECTA!\n"+ res + " F";
         panel1.resultado=numpt/Voltaje;
-        panel1.$$_Return_Msg_Error="¡RESPUESTA INCORRECTA!\n La respeusta es: " + res + " F";
+        panel1.$$_Return_Msg_Error="¡RESPUESTA INCORRECTA!.\n LA RESPUESTA ES: " + res + " F";
         panel1.$$_Numer_Button_Option=3;
         panel1.$_Relevar_Respuestas = true;
         panel1.$_JopcionMessage_Incorrect =true;
