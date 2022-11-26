@@ -245,13 +245,13 @@ public class Plantilla extends JPanel{
             Methods.setFont(selectSS, 20);
             
             selectSS =  (JLabel) Elementos.get(1);
-            selectSS.setSize(selectSS.getSize().width, 100);
+            selectSS.setSize(selectSS.getSize().width, 150);
             
             selectSS =  (JLabel) Elementos.get(0);
             Methods.Linear.Y(Elementos, 10, this.getSize().width / 2 - selectSS.getSize().width / 2, 30);        
             
             selectSS =  (JLabel) Elementos.get(1);
-            selectSS.setLocation(selectSS.getLocation().x, selectSS.getLocation().y + 20);
+            selectSS.setLocation(selectSS.getLocation().x, selectSS.getLocation().y + 10);
 
             msgError = Methods.AddLabel("<html><b></b></html>");
             msgError.setHorizontalAlignment(SwingConstants.LEFT);
