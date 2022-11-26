@@ -62,6 +62,8 @@ public class Opc4 extends Methods {
         panel1.resultado=numpt/Voltaje;
         panel1.$$_Return_Msg_Error="Respuesta incorrecta";
         panel1.$$_Numer_Button_Option=3;
+        panel1.$_Relevar_Respuestas = true;
+        panel1.$_JopcionMessage_Incorrect =true;
 
         panel1.ReloadCuestions();
     }
