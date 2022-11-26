@@ -20,7 +20,7 @@ public class Opc4 extends Methods {
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
             Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
             
-            Integer res= msg_Option("¿El dato ingresado en la carga es en MicroCoulom o NanooCoulom?", new String[]{"MicroCoulom","NanooCoulom"});
+            Integer res= msg_Option("¿El dato ingresado en la carga es en microCoulom o nanooCoulom?", new String[]{"MicroCoulom","NanooCoulom"});
         
             if(res==0){
             double elevado= Math.pow(10, -9);
@@ -28,18 +28,18 @@ public class Opc4 extends Methods {
             numpt=val1*elevado;
 
             double result= numpt*val2;
-            String res1 = "El resultado es " + (result+" C");
+            String res1 = "El resultado es " + (result+" F");
             panel1.$_Retorno_Formula= res1;
             }else{
             double elevado= Math.pow(10 , -6);
             double numpt;
             numpt=val1*elevado;
 
-            Integer calculo;
-            calculo = val1/val2;
+            Double calculo;
+            calculo = numpt/val2;
 
 
-            String res1 = "El resultado es " + (calculo);
+            String res1 = "El valor de la capacitancia es: " + (calculo+" F");
             panel1.$_Retorno_Formula= res1;
             }
         };
