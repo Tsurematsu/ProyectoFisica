@@ -215,6 +215,15 @@ public class Plantilla extends JPanel{
                 Botones.add(botonStandar);
             }
 
+            if ($_Relevar_Respuestas) {
+                for (JComponent integer : Botones) {
+                    JButton RT = (JButton) integer;
+                    if (RT.getText().equals(String.valueOf(resultado))) {
+                        RT.setBackground(Color.green);
+                    }
+                }
+            }
+
             for (JComponent jComponent : Botones) {
                 this.add(jComponent);
                 jComponent.setBackground(Color.WHITE);
