@@ -291,12 +291,13 @@ public class Plantilla extends JPanel{
                 atrás();
             }else{
                 select.setBackground(Color.red);
-                msgError.setText($$_Return_Msg_Error);
                 for (JComponent jComponent : Botones) {
                     jComponent.setEnabled(false);
                 }
                 if ($_JopcionMessage_Incorrect) {
                     Methods.msg($$_Return_Msg_Error, JOptionPane.INFORMATION_MESSAGE);
+                }else{
+                    msgError.setText($$_Return_Msg_Error);
                 }
             }
         }
