@@ -20,7 +20,7 @@ public class Opc4 extends Methods {
             Integer val1 = Integer.valueOf(panel1.$_Intput1_Retorno);
             Integer val2 = Integer.valueOf(panel1.$_Intput2_Retorno);
             
-            Integer res= msg_Option("¿El dato ingresado en la carga es en microCoulom o nanooCoulom?", new String[]{"MicroCoulom","NanooCoulom"});
+            Integer res= msg_Option("¿El dato ingresado en la carga es en microCoulom o nanoCoulom?", new String[]{"MicroCoulom","NanoCoulom"});
         
             if(res==0){
             double elevado= Math.pow(10, -9);
