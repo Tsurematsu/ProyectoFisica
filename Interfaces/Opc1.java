@@ -40,7 +40,6 @@ public class Opc1 extends Methods {
             double elevado= Math.pow(10 , -6);
             double numpt;
             numpt=cap*elevado;
-
             double result= numpt*poten;
             String res1 = "El resultado es " + (result+" C");
             panel1.$_Retorno_Formula= res1;
@@ -56,7 +55,7 @@ public class Opc1 extends Methods {
     static void loop(){
         double condensador= Methods.Random_Num(1.0, 10.0);
         double difpotencial= Methods.Random_Num(200.0, 800.0);
-        panel1.Cuestionario="<center>EJERCICIO DE PRACTICA</center><br>Entre las placas de un condensador de "+Methods.RoundNum(condensador, 2)+" uf hay una diferencia de potencial de "+Methods.RoundNum(difpotencial, 2)+" voltios<br>¿Cual será la carga en cada placa?<br> NOTA: uf=*10^-6";
+        panel1.Cuestionario="<center>EJERCICIO DE PRACTICA</center><br>Entre las placas de un condensador de "+Methods.RoundNum(condensador, 2)+" uf hay una diferencia de potencial de "+Methods.RoundNum(difpotencial, 2)+" voltios<br>¿Cual será la carga en cada placa?<br> NOTA: uf=*10^-6<br> Q=CV";
         double elevation= Math.pow(10, -6);
         double resp=condensador*elevation;
         double resp2= resp*difpotencial;
