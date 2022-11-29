@@ -1,11 +1,6 @@
 package Interfaces;
-
-
 import AppData.Methods;
 import AppData.Plantilla;
-import javax.swing.JPanel;
-
-import AppData.Methods;
 
 public class Opc3 extends Methods {
     
