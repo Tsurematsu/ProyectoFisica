@@ -106,7 +106,7 @@ public class Opc3 extends Methods {
                   panel1.$_Retorno_Formula= result6;
                   break;
                   
-                                                //   "Nanovoltios/Metro"                
+                                                  // "Nanovoltios/Metro"                
                                                 case 7:
                                                 double formula7 = (cap * nanovoltios) / dist;
                                                 resultado = formula7;
