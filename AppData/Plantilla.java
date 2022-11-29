@@ -44,7 +44,7 @@ public class Plantilla extends JPanel{
     public String Input0;
 
     public Plantilla() {
-        Methods.this_Window.setSize(600,450);
+        Methods.this_Window.setSize(600,500);
         this.repaint();}
 
     public void ReloadCuestions(){
@@ -148,7 +148,7 @@ public class Plantilla extends JPanel{
             }
 
             Methods.setFont((JLabel) ElementosGroup1.get(0), 20);
-            ((JLabel) ElementosGroup1.get(1)).setSize(((JLabel) ElementosGroup1.get(1)).getSize().width, 120);
+            ((JLabel) ElementosGroup1.get(1)).setSize(((JLabel) ElementosGroup1.get(1)).getSize().width, 180);
 
             Methods.Linear.Y(ElementosGroup1, 10, this.getSize().width / 2 - ElementosGroup1.get(0).getSize().width / 2, 30);        
             // Bloque 1 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
@@ -216,14 +216,7 @@ public class Plantilla extends JPanel{
                 Botones.add(botonStandar);
             }
 
-            // if ($_Relevar_Respuestas) {
-            //     for (JComponent integer : Botones) {
-            //         JButton RT = (JButton) integer;
-            //         if (RT.getText().equals(String.valueOf(resultado))) {
-            //             RT.setBackground(Color.green);
-            //         }
-            //     }
-            // }
+
 
             for (JComponent jComponent : Botones) {
                 this.add(jComponent);

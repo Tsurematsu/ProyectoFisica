@@ -22,9 +22,9 @@ public class Menu extends Methods{
         this_Window.setSize(400,300);
 
 
-        JLabel input1 = AddLabel("BIENVENIDO");
+        JLabel input1 = AddLabel("<html>Seleccione alguna de las siguentes opciones a calcular</html");
         input1.setSize(this_Window.getSize().width, 30);
-        setFont(input1, 23);
+        setFont(input1, 15);
         input1.setLocation(0,20);
         this_Panel.add(input1);
 
