@@ -27,7 +27,8 @@ public class Bienvenida extends Methods{
         this_Panel.add(input1);
 
         ArrayList<JComponent> botones = new ArrayList<>();
-        botones.add(AddButton("Siguiente", ()->{Menu.Open.run();}));
+        botones.add(AddButton("Integrantes", ()->{Integrantes.Open.run();}));
+        botones.add(AddButton("Ir al Menu", ()->{Menu.Open.run();}));
 
         for (JComponent jComponent : botones) {
             this_Panel.add(jComponent);
